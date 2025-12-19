@@ -1,0 +1,68 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page background */
+body {
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Description text */
+p {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Features list */
+ul {
+    list-style-type: none;
+    margin-bottom: 25px;
+}
+
+ul li {
+    background-color: #ecf0f1;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button */
+button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}

@@ -4,7 +4,6 @@
     <fullyQualifiedTypeName name="java.awt.dnd.peer.DragSourceContextPeer"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
     <fullyQualifiedTypeName name="java.lang.StrictMath"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.springcore.stereotype.Student"/>
     <fullyQualifiedTypeName name="java.lang.LinkageError"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
@@ -23,4 +22,6 @@
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.JdbcTemplate"/>
     <fullyQualifiedTypeName name="com.jdbc.insertDataForStudent.StudentInsert"/>
     <fullyQualifiedTypeName name="com.jdbc.entites.Student"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

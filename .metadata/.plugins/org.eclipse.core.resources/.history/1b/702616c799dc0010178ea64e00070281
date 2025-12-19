@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="new.css">
+    
+    <title>Smart Task Management System</title>
+</head>
+<body>
+
+    <h1>Smart Task Management System</h1>
+
+    <p>
+        Welcome to the Smart Task Management System.
+        This application helps you create, manage, and track your daily tasks easily.
+    </p>
+
+    <hr>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Add new tasks</li>
+        <li>Edit tasks</li>
+        <li>Delete tasks</li>
+        <li>Track task status</li>
+    </ul>
+
+    <button>Get Started</button>
+
+</body>
+</html>

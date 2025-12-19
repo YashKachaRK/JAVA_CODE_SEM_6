@@ -1,0 +1,63 @@
+package first;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * Servlet implementation class Hello
+ */
+@WebServlet("/Hello")
+public class Hello extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Hello() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");  // first line when make new project
+		PrintWriter out = response.getWriter();
+		out.println("<html><body>");
+
+		out.println("<h1>Yash Kacha</h1>");
+		out.println("</body></html>");
+		
+		String s1 = request.getParameter("sname");
+		String s2 = request.getParameter("semail");
+		String s3 = request.getParameter("sphone");
+		String s4 = request.getParameter("sgen");
+		String s5 = request.getParameter("scourse");
+		String s6 = request.getParameter("saddress");
+		
+		out.print("Student Name is " + s1 + "<br>");
+		out.print("Student Email is " + s2 + "<br>");
+		out.print("Student Phone is " + s3 + "<br>");
+		out.print("Student Gender is " + s4 + "<br>");
+		out.print("Student Course is " + s5 + "<br>");
+		out.print("Student Address is " + s6 + "<br>");
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		// TODO Auto-generated method stub
+//		doGet(request, response);
+//	}
+
+}
