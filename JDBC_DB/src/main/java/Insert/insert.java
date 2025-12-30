@@ -66,6 +66,8 @@ public class insert extends HttpServlet {
 				
 				if(count == 1) {
 					pw.println("<p>Insert Data Successfully</p>");
+					
+					response.sendRedirect("home.jsp");
 				}else
 				{
 					pw.println("<p>Insert Data Unsuccessfully</p>");
