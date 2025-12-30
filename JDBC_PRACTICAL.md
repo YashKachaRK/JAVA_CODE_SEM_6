@@ -4,6 +4,17 @@ This Markdown file contains the **Servlet (`insert.java`)** used to receive form
 
 ---
 
+## Database Table
+
+```java
+CREATE TABLE empdata (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    empname VARCHAR(100),
+    mobileno VARCHAR(15)
+);
+```
+
+
 ## 📄 insert.jsp (HTML)
 
 ```java
@@ -164,4 +175,3 @@ public class insert extends HttpServlet {
 }
 
 ```
-
