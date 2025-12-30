@@ -141,7 +141,7 @@ public class insert extends HttpServlet {
 				// Execute Query
 				int count = ps.executeUpdate();
 				
-				if(count == 0) {
+				if(count == 1) {
 					pw.println("<p>Insert Data Successfully</p>");
 				}else
 				{
