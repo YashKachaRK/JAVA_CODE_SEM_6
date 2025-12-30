@@ -1,72 +1,72 @@
-## INDEX.JSP
+# 📘 Employee Management – Servlet Example
+
+This Markdown file contains the **Servlet (`insert.java`)** used to receive form data from `index.jsp` and insert it into a MySQL database using **JDBC**.
+
+---
+
+## 📄 insert.java (Servlet)
 
 ```java
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Employee Form</title>
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-</head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+@WebServlet("/insert")
+public class insert extends HttpServlet {
 
-    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
-            Employee Details
-        </h2>
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        <form action="insert" method="get" class="space-y-4">
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-            <!-- Employee Name -->
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">
-                    Employee Name
-                </label>
-                <input
-                    type="text"
-                    name="empname"
-                    placeholder="Enter employee name"
-                    required
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
+        String empname = request.getParameter("empname");
+        String mobileno = request.getParameter("mobileno");
 
-            <!-- Mobile Number -->
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">
-                    Mobile Number
-                </label>
-                <input
-                    type="tel"
-                    name="mobileno"
-                    placeholder="Enter mobile number"
-                    pattern="[0-9]{10}"
-                    required
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
+        try {
+            // STEP 1: Load Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            <!-- Submit Button -->
-            <div>
-                <button
-                    type="submit"
-                    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
-                >
-                    Submit
-                </button>
-            </div>
+            // STEP 2: Create Connection
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/emp",
+                    "username",
+                    "password"
+            );
 
-        </form>
-    </div>
+            // STEP 3: Prepare SQL Query
+            PreparedStatement ps = conn.prepareStatement(
+                    "INSERT INTO employee(empname, mobileno) VALUES (?, ?)"
+            );
 
-</body>
-</html>
-```
+            ps.setString(1, empname);
+            ps.setString(2, mobileno);
 
-## NOW MAKE SERVLET FILE insert.java
+            // STEP 4: Execute Query
+            int result = ps.executeUpdate();
 
+            if (result > 0) {
+                out.println("<h2>Employee Inserted Successfully!</h2>");
+            } else {
+                out.println("<h2>Insertion Failed!</h2>");
+            }
+
+            // STEP 5: Close Resources
+            ps.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.println("<h2>Error : " + e.getMessage() + "</h2>");
+        }
+    }
+}
