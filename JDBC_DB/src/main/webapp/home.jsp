@@ -21,6 +21,13 @@
             Employee Records
         </h1>
 
+	<div class="mb-4">
+       <button onclick="window.location.href='index.jsp';" 
+        class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+		    Back
+		</button>
+
+    </div>
         <!-- Table -->
         <div class="overflow-x-auto">
             <table class="min-w-full border border-gray-200 rounded-lg">
@@ -60,12 +67,13 @@
                         <td class="py-3 px-4 text-center space-x-2">
 
                             <!-- Update Button -->
-                            <a href="<% rs.getInt("id"); %>" class="bg-yellow-500 text-white px-4 py-1 rounded-lg hover:bg-yellow-600 transition">
+                            <a href="update.jsp?id=<%= rs.getInt("id") %>" class="bg-yellow-500 text-white px-4 py-1 rounded-lg hover:bg-yellow-600 transition">
                                 Update
                             </a>
 
                             <!-- Delete Button -->
-                            <a href="" onclick="return confirm('Are you sure you want to delete?');"
+                            <a href="delete.jsp?id=<%= rs.getInt("id") %> "
+                             onclick="return confirm('Are you sure you want to delete this employee?');"
                                class="bg-red-600 text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
                                 Delete
                             </a>

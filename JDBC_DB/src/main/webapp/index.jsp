@@ -57,6 +57,18 @@
                     Submit
                 </button>
             </div>
+            
+            <!-- Show Users Button -->
+			<div class="mb-4 text-center">
+			    <button
+			        type="button"
+			        onclick="window.location.href='home.jsp';"
+			        class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-200"
+			    >
+			        Show Users
+			    </button>
+			</div>
+            
 
         </form>
     </div>
